@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.googlecode.concurrent-trees:concurrent-trees:2.4.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.googlecode.concurrent-trees/concurrent-trees/2.4.0/2e505b78f9216abebbbdf1c3254bf9f4c565ae43/concurrent-trees-2.4.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.googlecode.concurrent-trees/concurrent-trees/2.4.0/bc909437e391f266b8d46388f90f7dec345e46cf/concurrent-trees-2.4.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.rholder:snowball-stemmer:1.3.0.581.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.rholder/snowball-stemmer/1.3.0.581.1/35a89d519949c33c6f28e8f37b3df7893b776ca4/snowball-stemmer-1.3.0.581.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.rholder/snowball-stemmer/1.3.0.581.1/4eefadc106164a2d210bddf0569e85db0ff5ffc8/snowball-stemmer-1.3.0.581.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
