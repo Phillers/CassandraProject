@@ -1,14 +1,8 @@
 package cassdemo.backend;
 
+import com.datastax.driver.core.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.datastax.driver.core.BoundStatement;
-import com.datastax.driver.core.Cluster;
-import com.datastax.driver.core.PreparedStatement;
-import com.datastax.driver.core.ResultSet;
-import com.datastax.driver.core.Row;
-import com.datastax.driver.core.Session;
 
 /*
  * For error handling done right see: 
@@ -31,7 +25,9 @@ public class BackendSession {
 
 	public BackendSession(String contactPoint, String keyspace) throws BackendException {
 
-		Cluster cluster = Cluster.builder().addContactPoint(contactPoint).build();
+		Cluster cluster = Cluster.builder().addContactPoint(contactPoint)
+				.withQueryOptions(new QueryOptions().setConsistencyLevel(ConsistencyLevel.QUORUM))
+				.build();
 		try {
 			session = cluster.connect(keyspace);
 		} catch (Exception e) {
@@ -41,19 +37,17 @@ public class BackendSession {
 	}
 
 	private static PreparedStatement SELECT_ALL_FROM_BLOCKS;
+	private static PreparedStatement SELECT_FROM_BLOCKS;
 	private static PreparedStatement SELECT_FROM_NUMBERS;
 	private static PreparedStatement SELECT_FROM_LOCK;
 	private static PreparedStatement UPDATE_LOCK;
 	private static PreparedStatement UPDATE_BLOCKS;
 	private static PreparedStatement UPDATE_NUMBERS;
 
-	private static final String USER_FORMAT = "- %-10s  %-16s %-10s %-10s\n";
-	// private static final SimpleDateFormat df = new
-	// SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
 	private void prepareStatements() throws BackendException {
 		try {
 			SELECT_ALL_FROM_BLOCKS = session.prepare("SELECT * FROM Blocks;");
+			SELECT_FROM_BLOCKS = session.prepare("SELECT * FROM Blocks WHERE block=?;");
 			SELECT_FROM_LOCK = session.prepare("SELECT * FROM Lock WHERE key=0;");
 			SELECT_FROM_NUMBERS = session.prepare("SELECT * FROM Numbers WHERE block=?;");
 			UPDATE_BLOCKS = session.prepare(
@@ -73,7 +67,7 @@ public class BackendSession {
 
 		BoundStatement bs = new BoundStatement(SELECT_ALL_FROM_BLOCKS);
 
-		ResultSet rs = null;
+		ResultSet rs;
 
 		try {
 			rs = session.execute(bs);
@@ -83,11 +77,11 @@ public class BackendSession {
 		return rs;
 	}
 
-	public int selectLock() throws BackendException {
+	public int selectBlock(int block) throws BackendException {
 
-		BoundStatement bs = new BoundStatement(SELECT_FROM_LOCK);
+		BoundStatement bs = SELECT_FROM_BLOCKS.bind(block);
 
-		ResultSet rs = null;
+		ResultSet rs;
 
 		try {
 			rs = session.execute(bs);
@@ -95,9 +89,23 @@ public class BackendSession {
 			throw new BackendException("Could not perform a query. " + e.getMessage() + ".", e);
 		}
 
-		for(Row row : rs){
-			return row.getInt("process");
+		for(Row row : rs) return row.getInt("process");
+		return -1;
+	}
+
+	public int selectLock() throws BackendException {
+
+		BoundStatement bs = new BoundStatement(SELECT_FROM_LOCK);
+
+		ResultSet rs;
+
+		try {
+			rs = session.execute(bs);
+		} catch (Exception e) {
+			throw new BackendException("Could not perform a query. " + e.getMessage() + ".", e);
 		}
+
+		for(Row row : rs) return row.getInt("process");
 		return -1;
 	}
 
@@ -105,7 +113,7 @@ public class BackendSession {
 
 		BoundStatement bs = SELECT_FROM_NUMBERS.bind(block);
 
-		ResultSet rs = null;
+		ResultSet rs;
 
 		try {
 			rs = session.execute(bs);
