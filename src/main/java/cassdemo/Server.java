@@ -57,6 +57,7 @@ public class Server {
                 int reservedNumber;
                 try {
                     reservedNumber = tryReserveNumbers(process, reservedBlock, count);
+                    session.updateBlock(reservedBlock, -1);
                 } catch (PartialSuccessException e) {
                     rr.result = ReservationResult.results.PARTIAL;
                     rr.erorMessage = e.getMessage();
