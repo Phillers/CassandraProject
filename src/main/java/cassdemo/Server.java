@@ -15,6 +15,9 @@ public class Server {
     private String keyspace;
     private int replicationFactor;
 
+    private static int RIGHTS_LOST = -2;
+    private static int NOT_FOUND = -1;
+
     private BackendSession session;
 
     public Server(String propertiesFile) throws BackendException {
@@ -34,38 +37,49 @@ public class Server {
 
     public ReservationResult reserveNumbers(int process, int count){
         ReservationResult rr = new ReservationResult();
+        int[] triedBlocks = new int[blocks];
+        int blocksLeft = blocks;
         if(count > blockSize){
             rr.erorMessage = "Request bigger than blocksize";
             return rr;
         }
         try {
-            while(!rr.success) {
+            while(rr.result != ReservationResult.results.SUCCESS) {
                 reserveLock(process);
-                int reservedBlock = reserveBlock(process);
-                if(reservedBlock == -1){
+                int reservedBlock = reserveBlock(process, triedBlocks);
+
+                if(reservedBlock == NOT_FOUND){
                     rr.erorMessage = "No unlocked blocks";
                     return rr;
                 }
-                if(reservedBlock == -2)
+                if(reservedBlock == RIGHTS_LOST)
                     continue;
                 int reservedNumber = -2;
                 try {
                     reservedNumber = tryReserveNumbers(process, reservedBlock, count);
                 } catch (PartialSuccessException e) {
+                    rr.result = ReservationResult.results.PARTIAL;
                     rr.erorMessage = e.getMessage();
                     rr.block = reservedBlock;
                     rr.number = e.start;
-                    rr.count = e.fail = e.start;
-                }
-
-                if(reservedNumber == -1){
-                    rr.erorMessage = "Not enough numbers in reserved block";
+                    rr.count = e.fail - e.start +1;
                     return rr;
                 }
-                if(reservedNumber == -2)
+
+                if(reservedNumber == NOT_FOUND){
+                    triedBlocks[reservedBlock] = 1;
+                    blocksLeft--;
+                    if(blocksLeft == 0){
+                        rr.erorMessage = "Not enough numbers";
+                        return rr;
+                    };
+                    continue;
+                }
+
+                if(reservedNumber == RIGHTS_LOST)
                     continue;
 
-                rr.success = true;
+                rr.result = ReservationResult.results.SUCCESS;
                 rr.count = count;
                 rr.number = reservedNumber;
                 rr.block = reservedBlock;
@@ -77,6 +91,41 @@ public class Server {
             rr.erorMessage = e.getMessage();
             return rr;
         }
+
+        return rr;
+    }
+
+    public ReservationResult freeNumbers(int process, int block, int start, int count, boolean sure){
+        ReservationResult rr = new ReservationResult();
+        ResultSet rs = null;
+        try {
+            rs = session.selectBlockNumbers(block);
+        } catch (BackendException e) {
+            rr.erorMessage = e.getMessage();
+            return rr;
+        }
+
+        int[] numbers = new int[blockSize];
+        for(Row row : rs){
+            numbers[row.getInt("number")] = row.getInt("process");
+        }
+        for(int i = start ; i < start + count; i++){
+            if(numbers[start + i] == process){
+                try {
+                    session.updateNumber(block, i, -1);
+                } catch (BackendException e) {
+                    rr.erorMessage = e.getMessage();
+                    rr.result = ReservationResult.results.PARTIAL;
+                    rr.block = block;
+                    rr.number = start;
+                    rr.count = i - start;
+                    return rr;
+                }
+            }else{
+
+            }
+        }
+
 
         return rr;
     }
@@ -107,9 +156,9 @@ public class Server {
         if(session.selectBlock(reservedBlock) != process)
             return -2;
 
-        for(int i = start; i < (start + free); i++){
+        for(int i = start; i < (start + count); i++){
             try {
-                session.updateNumber(reservedBlock, start + i, process);
+                session.updateNumber(reservedBlock, i, process);
             } catch (BackendException e) {
                 throw new PartialSuccessException(start, i, e.getMessage());
             }
@@ -118,15 +167,16 @@ public class Server {
         return start;
     }
 
-    private int reserveBlock(int process) throws BackendException {
+    private int reserveBlock(int process, int[] triedBlocks) throws BackendException {
         int currentBlock = -1;
-        int lockedBlock = -1;
         while(true) {
             ResultSet rs = session.selectAllBlocks();
             for (Row row : rs) {
                 int tmpProc = row.getInt("process");
+                int tmpBlock = row.getInt("block");
+                if (triedBlocks[tmpBlock]>0)continue;
                 if (tmpProc < 0 || tmpProc == process) {
-                    currentBlock = row.getInt("block");
+                    currentBlock = tmpBlock;
                     break;
                 }
             }
@@ -145,8 +195,8 @@ public class Server {
                 if (row.getInt("block") == currentBlock) {
                     if(row.getInt("process") == process){
                         session.updateLock(-1);
-                        lockedBlock = currentBlock;
-                        return lockedBlock;
+
+                        return currentBlock;
                     }
                     break;
                 }

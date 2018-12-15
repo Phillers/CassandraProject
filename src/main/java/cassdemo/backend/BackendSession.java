@@ -56,6 +56,7 @@ public class BackendSession {
 					"UPDATE Lock set process=? WHERE key=0;");
 			UPDATE_NUMBERS = session.prepare(
 					"UPDATE Numbers set process=? WHERE block=? AND number=?;");
+
 		} catch (Exception e) {
 			throw new BackendException("Could not prepare statements. " + e.getMessage() + ".", e);
 		}
