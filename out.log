@@ -1,6 +1,13 @@
-530  INFO  c.d.driver.core.GuavaCompatibility: Detected Guava >= 19 in the classpath, using modern compatibility layer
-1062 INFO  c.datastax.driver.core.ClockFactory: Using native clock to generate timestamps.
-1267 INFO  com.datastax.driver.core.NettyUtil: Found Netty's native epoll transport in the classpath, using it
-2375 INFO  c.d.d.c.p.DCAwareRoundRobinPolicy: Using data-center name 'datacenter1' for DCAwareRoundRobinPolicy (if this is incorrect, please provide the correct datacenter name with DCAwareRoundRobinPolicy constructor)
-2377 INFO  com.datastax.driver.core.Cluster: New Cassandra host /127.0.0.1:9042 added
-2529 INFO  cassdemo.backend.BackendSession: Statements prepared
+444  INFO  c.d.driver.core.GuavaCompatibility: Detected Guava >= 19 in the classpath, using modern compatibility layer
+928  INFO  c.datastax.driver.core.ClockFactory: Using native clock to generate timestamps.
+1152 INFO  com.datastax.driver.core.NettyUtil: Found Netty's native epoll transport in the classpath, using it
+2196 INFO  c.d.d.c.p.DCAwareRoundRobinPolicy: Using data-center name 'datacenter1' for DCAwareRoundRobinPolicy (if this is incorrect, please provide the correct datacenter name with DCAwareRoundRobinPolicy constructor)
+2200 INFO  com.datastax.driver.core.Cluster: New Cassandra host /127.0.0.1:9042 added
+2283 INFO  cassdemo.backend.BackendSession: Statements prepared
+16963 INFO  cassdemo.backend.BackendSession: Number 0 in block 1 reserved by process -1
+23760 INFO  cassdemo.backend.BackendSession: Number 0 in block 2 reserved by process -1
+23763 INFO  cassdemo.backend.BackendSession: Number 1 in block 2 reserved by process -1
+23766 INFO  cassdemo.backend.BackendSession: Number 2 in block 2 reserved by process -1
+23769 INFO  cassdemo.backend.BackendSession: Number 3 in block 2 reserved by process -1
+23772 INFO  cassdemo.backend.BackendSession: Number 4 in block 2 reserved by process -1
+23775 INFO  cassdemo.backend.BackendSession: Number 5 in block 2 reserved by process -1

@@ -26,7 +26,7 @@ public class BackendSession {
 	public BackendSession(String contactPoint, String keyspace) throws BackendException {
 
 		Cluster cluster = Cluster.builder().addContactPoint(contactPoint)
-				.withQueryOptions(new QueryOptions().setConsistencyLevel(ConsistencyLevel.QUORUM))
+				.withQueryOptions(new QueryOptions().setConsistencyLevel(ConsistencyLevel.ONE))
 				.build();
 		try {
 			session = cluster.connect(keyspace);
@@ -90,8 +90,7 @@ public class BackendSession {
 			throw new BackendException("Could not perform a query. " + e.getMessage() + ".", e);
 		}
 
-		for(Row row : rs) return row.getInt("process");
-		return -1;
+		return rs.one().getInt("process");
 	}
 
 	public int selectLock() throws BackendException {
@@ -106,8 +105,8 @@ public class BackendSession {
 			throw new BackendException("Could not perform a query. " + e.getMessage() + ".", e);
 		}
 
-		for(Row row : rs) return row.getInt("process");
-		return -1;
+		return rs.one().getInt("process");
+
 	}
 
 	public ResultSet selectBlockNumbers(int block) throws BackendException {
@@ -133,7 +132,7 @@ public class BackendSession {
 			throw new BackendException("Could not perform an update. " + e.getMessage() + ".", e);
 		}
 
-		logger.info("Lock updated");
+		logger.info(String.format("Lock reserved by process %d", process));
 	}
 
 	public void updateBlock(int block, int process) throws BackendException {
@@ -145,7 +144,7 @@ public class BackendSession {
 			throw new BackendException("Could not perform an update. " + e.getMessage() + ".", e);
 		}
 
-		logger.info("Block updated");
+		logger.info(String.format("Block %d reserved by process %d", block, process));
 	}
 	public void updateNumber(int block, int number, int process) throws BackendException {
 		BoundStatement bs = UPDATE_NUMBERS.bind(process, block, number);
@@ -156,7 +155,7 @@ public class BackendSession {
 			throw new BackendException("Could not perform an update. " + e.getMessage() + ".", e);
 		}
 
-		logger.info("Lock updated");
+		logger.info(String.format("Number %d in block %d reserved by process %d", number, block, process));
 	}
 
 	protected void finalize() {

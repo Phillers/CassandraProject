@@ -54,7 +54,7 @@ public class Server {
                 }
                 if(reservedBlock == RIGHTS_LOST)
                     continue;
-                int reservedNumber = -2;
+                int reservedNumber;
                 try {
                     reservedNumber = tryReserveNumbers(process, reservedBlock, count);
                 } catch (PartialSuccessException e) {
@@ -72,7 +72,7 @@ public class Server {
                     if(blocksLeft == 0){
                         rr.erorMessage = "Not enough numbers";
                         return rr;
-                    };
+                    }
                     continue;
                 }
 
@@ -95,9 +95,10 @@ public class Server {
         return rr;
     }
 
-    public ReservationResult freeNumbers(int process, int block, int start, int count, boolean sure){
+    public ReservationResult freeNumbers(int process, int block, int start, int count, boolean sure) throws PartialSuccessException {
+
         ReservationResult rr = new ReservationResult();
-        ResultSet rs = null;
+        ResultSet rs;
         try {
             rs = session.selectBlockNumbers(block);
         } catch (BackendException e) {
@@ -109,8 +110,10 @@ public class Server {
         for(Row row : rs){
             numbers[row.getInt("number")] = row.getInt("process");
         }
-        for(int i = start ; i < start + count; i++){
-            if(numbers[start + i] == process){
+        int notOwnedNumbers = 0;
+        for (int i = start; i < start + count && i < blockSize; i++) {
+
+            if (numbers[i] == process) {
                 try {
                     session.updateNumber(block, i, -1);
                 } catch (BackendException e) {
@@ -122,8 +125,12 @@ public class Server {
                     return rr;
                 }
             }else{
-
+                notOwnedNumbers++;
             }
+        }
+
+        if (sure && notOwnedNumbers > 0) {
+            throw new PartialSuccessException(count, notOwnedNumbers, "Total of " + notOwnedNumbers + " from " + count + " to free were not owned");
         }
 
 
