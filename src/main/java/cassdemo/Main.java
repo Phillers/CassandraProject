@@ -2,6 +2,7 @@ package cassdemo;
 
 import cassdemo.backend.BackendException;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -12,11 +13,17 @@ public class Main {
         Server server = new Server(PROPERTIES_FILENAME);
         Scanner scanner = new Scanner(System.in);
         ReservationResult rr;
+        int process;
+        if (args.length > 1)
+            process = Integer.parseInt(args[1]);
+        else
+            process = new Random().nextInt(10);
+
         while (scanner.hasNext()) {
             char comand = scanner.next().charAt(0);
             if (comand == 'r') {
 
-                rr = server.reserveNumbers(0, scanner.nextInt());
+                rr = server.reserveNumbers(process, scanner.nextInt());
                 System.out.println(String.format("Status: %s\n" +
                                 "Block: %d\n" +
                                 "Number: %d\n" +
@@ -26,7 +33,7 @@ public class Main {
             }
             if (comand == 'f') {
                 try {
-                    server.freeNumbers(0, scanner.nextInt(), scanner.nextInt(), scanner.nextInt(), true);
+                    server.freeNumbers(process, scanner.nextInt(), scanner.nextInt(), scanner.nextInt(), true);
                 } catch (PartialSuccessException e) {
                     e.printStackTrace();
                 }

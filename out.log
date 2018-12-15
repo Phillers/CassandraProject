@@ -1,68 +1,272 @@
-444  INFO  c.d.driver.core.GuavaCompatibility: Detected Guava >= 19 in the classpath, using modern compatibility layer
-928  INFO  c.datastax.driver.core.ClockFactory: Using native clock to generate timestamps.
-1152 INFO  com.datastax.driver.core.NettyUtil: Found Netty's native epoll transport in the classpath, using it
-2196 INFO  c.d.d.c.p.DCAwareRoundRobinPolicy: Using data-center name 'datacenter1' for DCAwareRoundRobinPolicy (if this is incorrect, please provide the correct datacenter name with DCAwareRoundRobinPolicy constructor)
-2200 INFO  com.datastax.driver.core.Cluster: New Cassandra host /127.0.0.1:9042 added
-2283 INFO  cassdemo.backend.BackendSession: Statements prepared
-16963 INFO  cassdemo.backend.BackendSession: Number 0 in block 1 reserved by process -1
-23760 INFO  cassdemo.backend.BackendSession: Number 0 in block 2 reserved by process -1
-23763 INFO  cassdemo.backend.BackendSession: Number 1 in block 2 reserved by process -1
-23766 INFO  cassdemo.backend.BackendSession: Number 2 in block 2 reserved by process -1
-23769 INFO  cassdemo.backend.BackendSession: Number 3 in block 2 reserved by process -1
-23772 INFO  cassdemo.backend.BackendSession: Number 4 in block 2 reserved by process -1
-23775 INFO  cassdemo.backend.BackendSession: Number 5 in block 2 reserved by process -1
-993136 INFO  cassdemo.backend.BackendSession: Number 0 in block 3 reserved by process -1
-993139 INFO  cassdemo.backend.BackendSession: Number 1 in block 3 reserved by process -1
-993142 INFO  cassdemo.backend.BackendSession: Number 2 in block 3 reserved by process -1
-993144 INFO  cassdemo.backend.BackendSession: Number 3 in block 3 reserved by process -1
-993147 INFO  cassdemo.backend.BackendSession: Number 4 in block 3 reserved by process -1
-993155 INFO  cassdemo.backend.BackendSession: Number 5 in block 3 reserved by process -1
-1007609 INFO  cassdemo.backend.BackendSession: Number 0 in block 4 reserved by process -1
-1007612 INFO  cassdemo.backend.BackendSession: Number 1 in block 4 reserved by process -1
-1007615 INFO  cassdemo.backend.BackendSession: Number 2 in block 4 reserved by process -1
-1007617 INFO  cassdemo.backend.BackendSession: Number 3 in block 4 reserved by process -1
-1007621 INFO  cassdemo.backend.BackendSession: Number 4 in block 4 reserved by process -1
-1007624 INFO  cassdemo.backend.BackendSession: Number 5 in block 4 reserved by process -1
-1021471 INFO  cassdemo.backend.BackendSession: Number 0 in block 5 reserved by process -1
-1021474 INFO  cassdemo.backend.BackendSession: Number 1 in block 5 reserved by process -1
-1021476 INFO  cassdemo.backend.BackendSession: Number 2 in block 5 reserved by process -1
-1021479 INFO  cassdemo.backend.BackendSession: Number 3 in block 5 reserved by process -1
-1021481 INFO  cassdemo.backend.BackendSession: Number 4 in block 5 reserved by process -1
-1021484 INFO  cassdemo.backend.BackendSession: Number 5 in block 5 reserved by process -1
-1021486 INFO  cassdemo.backend.BackendSession: Number 6 in block 5 reserved by process -1
-1021489 INFO  cassdemo.backend.BackendSession: Number 7 in block 5 reserved by process -1
-1021491 INFO  cassdemo.backend.BackendSession: Number 8 in block 5 reserved by process -1
-1043298 INFO  cassdemo.backend.BackendSession: Number 0 in block 6 reserved by process -1
-1043302 INFO  cassdemo.backend.BackendSession: Number 1 in block 6 reserved by process -1
-1043307 INFO  cassdemo.backend.BackendSession: Number 2 in block 6 reserved by process -1
-1043311 INFO  cassdemo.backend.BackendSession: Number 3 in block 6 reserved by process -1
-1043314 INFO  cassdemo.backend.BackendSession: Number 4 in block 6 reserved by process -1
-1043318 INFO  cassdemo.backend.BackendSession: Number 5 in block 6 reserved by process -1
-1057723 INFO  cassdemo.backend.BackendSession: Number 0 in block 7 reserved by process -1
-1057726 INFO  cassdemo.backend.BackendSession: Number 1 in block 7 reserved by process -1
-1057729 INFO  cassdemo.backend.BackendSession: Number 2 in block 7 reserved by process -1
-1057732 INFO  cassdemo.backend.BackendSession: Number 3 in block 7 reserved by process -1
-1057734 INFO  cassdemo.backend.BackendSession: Number 4 in block 7 reserved by process -1
-1057736 INFO  cassdemo.backend.BackendSession: Number 5 in block 7 reserved by process -1
-1062051 INFO  cassdemo.backend.BackendSession: Number 0 in block 8 reserved by process -1
-1062054 INFO  cassdemo.backend.BackendSession: Number 1 in block 8 reserved by process -1
-1062057 INFO  cassdemo.backend.BackendSession: Number 2 in block 8 reserved by process -1
-1062059 INFO  cassdemo.backend.BackendSession: Number 3 in block 8 reserved by process -1
-1062062 INFO  cassdemo.backend.BackendSession: Number 4 in block 8 reserved by process -1
-1062065 INFO  cassdemo.backend.BackendSession: Number 5 in block 8 reserved by process -1
-1067795 INFO  cassdemo.backend.BackendSession: Number 0 in block 9 reserved by process -1
-1067798 INFO  cassdemo.backend.BackendSession: Number 1 in block 9 reserved by process -1
-1067802 INFO  cassdemo.backend.BackendSession: Number 2 in block 9 reserved by process -1
-1067804 INFO  cassdemo.backend.BackendSession: Number 3 in block 9 reserved by process -1
-1067807 INFO  cassdemo.backend.BackendSession: Number 4 in block 9 reserved by process -1
-1067809 INFO  cassdemo.backend.BackendSession: Number 5 in block 9 reserved by process -1
-1072632 INFO  cassdemo.backend.BackendSession: Number 0 in block 10 reserved by process -1
-1072637 INFO  cassdemo.backend.BackendSession: Number 1 in block 10 reserved by process -1
-1072641 INFO  cassdemo.backend.BackendSession: Number 2 in block 10 reserved by process -1
-1072643 INFO  cassdemo.backend.BackendSession: Number 3 in block 10 reserved by process -1
-1072645 INFO  cassdemo.backend.BackendSession: Number 4 in block 10 reserved by process -1
-1072647 INFO  cassdemo.backend.BackendSession: Number 5 in block 10 reserved by process -1
-1072648 INFO  cassdemo.backend.BackendSession: Number 6 in block 10 reserved by process -1
-1072651 INFO  cassdemo.backend.BackendSession: Number 7 in block 10 reserved by process -1
-1072653 INFO  cassdemo.backend.BackendSession: Number 8 in block 10 reserved by process -1
-1072658 INFO  cassdemo.backend.BackendSession: Number 9 in block 10 reserved by process -1
+521  INFO  c.d.driver.core.GuavaCompatibility: Detected Guava >= 19 in the classpath, using modern compatibility layer
+1077 INFO  c.datastax.driver.core.ClockFactory: Using native clock to generate timestamps.
+1326 INFO  com.datastax.driver.core.NettyUtil: Found Netty's native epoll transport in the classpath, using it
+2599 INFO  c.d.d.c.p.DCAwareRoundRobinPolicy: Using data-center name 'datacenter1' for DCAwareRoundRobinPolicy (if this is incorrect, please provide the correct datacenter name with DCAwareRoundRobinPolicy constructor)
+2603 INFO  com.datastax.driver.core.Cluster: New Cassandra host /127.0.0.1:9042 added
+2700 INFO  cassdemo.backend.BackendSession: Statements prepared
+30497 INFO  cassdemo.backend.BackendSession: Lock reserved by process 1
+30509 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process 1
+30513 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+30517 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process -1
+30529 INFO  cassdemo.backend.BackendSession: Lock reserved by process 1
+30540 INFO  cassdemo.backend.BackendSession: Block 1 reserved by process 1
+30547 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+30555 INFO  cassdemo.backend.BackendSession: Block 1 reserved by process -1
+30560 INFO  cassdemo.backend.BackendSession: Lock reserved by process 1
+30568 INFO  cassdemo.backend.BackendSession: Block 8 reserved by process 1
+30574 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+30579 INFO  cassdemo.backend.BackendSession: Block 8 reserved by process -1
+30585 INFO  cassdemo.backend.BackendSession: Lock reserved by process 1
+30593 INFO  cassdemo.backend.BackendSession: Block 0 reserved by process 1
+30600 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+30607 496432 INFO  cassdemo.backend.BackendSession: Lock reserved by process 3
+496447 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process 3
+496453 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+496463 INFO  cassdemo.backend.BackendSession: Number 6 in block 5 reserve507651 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+507659 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process 7
+507663 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+507668 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process512032 INFO  cassdemo.backend.BackendSession: Lock reserved by process 1
+512043 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process 1
+512048 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+512052 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process -1
+512056 INFO  cassdemo.backend.BackendSession: Lock reserved by process 1
+512064 INFO  cassdemo.backend.BackendSession: Block 1 reserved by process 1
+512069 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+512074 INFO  cassdemo.backend.BackendSession: Blo531155 INFO  cassdemo.backend.BackendSession: Lock reserved by process 3
+531164 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process 3
+531168 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+531174 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process -1
+531178 INFO  cassdemo.backend.BackendSession: Lock reserved by process 3
+531184 INFO  cassdemo.backend.BackendSession: Block 1 reserved by process 3
+531188 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+531192 INFO  cassdemo.backend.BackendSession: Block 1 reserved by process -1
+531197 INFO  cassdemo.backend.BackendSession: Lock reserved by process 3
+531204 INFO  cassdemo.backend.BackendSession: Block 8 reserved by process 3
+531209 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+531214 INFO  cassdemo.backend.BackendSession: Block 8 reserved by process -1
+531219 INFO  cassdemo.backend.BackendSession: Lock reserved by process 3
+531226 INFO  cassdemo.backend.BackendSession: Block 0 reserved by process 3
+531231 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+531235 INFO  cassdemo.backend.Backend534691 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+534700 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process 7
+534705 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+534708 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process -1
+534712 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+534719 INFO  cassdemo.backend.BackendSession: Block 1 reserved by process 7
+534724 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+534727 INFO  cassdemo.backend.BackendSession: Block 1 reserved by process -1
+5347554576 INFO  cassdemo.backend.BackendSession: Lock reserved by process 3
+554583 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process 3
+554587 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+554592 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process -1
+554598 INFO  cassdemo.backend.BackendSession: Lock reserved by process 3
+554603 INFO  cassdemo.backend.BackendSession: Block 1 reserved by process 3
+554607 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+554610 INFO  cassdemo.backend.BackendSession: Block 1 reserved by process -1
+554614 INFO  cassdemo.backend.BackendSession: Lock reserved by process 3
+554620 INFO  cassdemo.backend.BackendSession: Block 8 reserved by process 3
+554624 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+554629 INFO  cassdemo.backend.BackendSession: Block 8 reserved by process -1
+554636 INFO  cassdemo.backend.BackendSession: Lock reserved by process 3
+554648 INFO  cassdemo.backend.BackendSession: Block 0 reserved by process 3
+554653 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+554660 INFO  cassdemo.backend.Backend554734 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+554745 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process 7
+554751 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+554757 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process -1
+554761 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+554768 INFO  cassdemo.backend.BackendSession: Block 1 reserved by process 7
+554771 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+554776 INFO  cassdemo.backend.BackendSession: Block 1 reserved by process -1
+554788 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+554795 INFO  cassdemo.backend.BackendSession: Block 8 reserved by process 7
+554799 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+554803 INFO  cassdemo.backend.BackendSession: Block 8 reserved by process -1
+5548579929 INFO  cassdemo.backend.BackendSession: Lock reserved by process 3
+579938 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process 3
+579942 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+579946 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process -1
+579951 INFO  cassdemo.backend.BackendSession: Lock reserved by process 3
+579962 INFO  cassdemo.backend.BackendSession: Block 1 reserved by process 3
+579967 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+579971 INFO  cassdemo.backend.BackendSession: Block 1 reserved by process -1
+579976 INFO  cassdemo.backend.BackendSession: Lock reserved by process 3
+579982 INFO  cassdemo.backend.BackendSession: Block 8 reserved by process 3
+579986 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+579991 INFO  cassdemo.backend.BackendSession: Block 8 reserved by process -1
+579998 INFO  cassdemo.backend.BackendSession: Lock reserved by process 3
+580017 INFO  cassdemo.backend.BackendSession: Block 0 reserved by process 3
+580028 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+580038 INFO  cassdemo.backend.BackendSession: Block 0 reserved by process -1
+580056 INFO  cassdemo.backend.BackendSession: Lock reserved by process 3
+580073 INFO  cassdemo.backend.BackendSession: Block 2 reserved by process 3
+580081 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+580089 INFO  cassdemo.backend.Backend582755 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+582764 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process 7
+582768 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+582773 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process -1
+582782 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+582797 INFO  cassdemo.backend.BackendSession: Block 1 reserved by process 7
+582802 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+582812 INFO  cassdemo.backend.BackendSession: Block 1 reserved by process -1
+582822 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+582837 INFO  cassdemo.backend.BackendSession: Block 8 reserved by process 7
+582842 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+582847 INFO  cassdemo.backend.BackendSession: Block 8 reserved by process -1
+5828601831 INFO  cassdemo.backend.BackendSession: Lock reserved by process 3
+601837 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process 3
+601840 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+601845 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process -1
+601855 INFO  cassdemo.backend.BackendSession: Lock reserved by process 3
+601867 INFO  cassdemo.backend.BackendSession: Block 1 reserved by process 3
+601871 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+601880 INFO  cassdemo.backend.BackendSession: Block 1 reserved by process -1
+601891 INFO  cassdemo.backend.BackendSession: Lock reserved by process 3
+601897 INFO  cassdemo.backend.BackendSession: Block 8 reserved by process 3
+601900 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+601903 INFO  cassdemo.backend.BackendSession: Block 8 reserved by process -1
+601907 INFO  cassdemo.backend.BackendSession: Lock reserved by process 3
+601913 INFO  cassdemo.backend.BackendSession: Block 0 reserved by process 3
+601917 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+601920 INFO  cassdemo.backend.BackendSession: Block 0 reserved by process -1
+601926 INFO  cassdemo.backend.BackendSession: Lock reserved by process 3
+601938 INFO  cassdemo.backend.BackendSession: Block 2 reserved by process 3
+601944 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+601948 INFO  cassdemo.backend.BackendSession: Block 2 reserved by process -1
+601953 INFO  cassdemo.backend.BackendSession: Lock reserved by process 3
+601960 INFO  cassdemo.backend.BackendSession: Block 4 reserved by process 3
+601963 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+601966 INFO  cassdemo.backend.Backend603012 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+603019 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process 7
+603022 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+603024 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process -1
+603028 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+603035 INFO  cassdemo.backend.BackendSession: Block 1 reserved by process 7
+603040 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+603045 INFO  cassdemo.backend.BackendSession: Block 1 reserved by process -1
+603057 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+603065 INFO  cassdemo.backend.BackendSession: Block 8 reserved by process 7
+603070 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+603073 INFO  cassdemo.backend.BackendSession: Block 8 reserved by process -1
+603077 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+603084 INFO  cassdemo.backend.BackendSession: Block 0 reserved by process 7
+603088 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+603094 INFO  cassdemo.backend.BackendSession: Block 0 reserved by process -1
+603100 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+603110 INFO  cassdemo.backend.BackendSession: Block 2 reserved by process 7
+603115 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+603120 INFO  cassdemo.backend.BackendSession:621373 INFO  cassdemo.backend.BackendSession: Lock reserved by process 3
+621380 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process 3
+621385 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+621387 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process -1
+621390 INFO  cassdemo.backend.BackendSession: Lock reserved by process 3
+621395 INFO  cassdemo.backend.BackendSession: Block 1 reserved by process 3
+621398 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+621401 INFO  cassdemo.backend.BackendSession: Block 1 reserved by process -1
+621405 INFO  cassdemo.backend.BackendSession: Lock reserved by process 3
+621409 INFO  cassdemo.backend.BackendSession: Block 8 reserved by process 3
+621412 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+621414 INFO  cassdemo.backend.BackendSession: Block 8 reserved by process -1
+621417 INFO  cassdemo.backend.BackendSession: Lock reserved by process 3
+621423 INFO  cassdemo.backend.BackendSession: Block 0 reserved by process 3
+621427 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+621430 INFO  cassdemo.backend.BackendSession: Block 0 reserved by process -1
+621433 INFO  cassdemo.backend.BackendSession: Lock reserved by process 3
+621439 INFO  cassdemo.backend.BackendSession: Block 2 reserved by process 3
+621442 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+621445 INFO  cassdemo.backend.BackendSession: Block 2 reserved by process -1
+621449 INFO  cassdemo.backend.BackendSession: Lock reserved by process 3
+621454 INFO  cassdemo.backend.BackendSession: Block 4 reserved by process 3
+621457 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+621460 INFO  cassdemo.backend.BackendSession: Block 4 reserved by process -1
+621466 INFO  cassdemo.backend.BackendSession: Lock reserved by process 3
+621473 INFO  cassdemo.backend.BackendSession: Block 7 reserved by process 3
+621477 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+621480 INFO  cassdemo.backend.Backend621416 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+621422 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process 7
+621427 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+621431 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process -1
+621434 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+621439 INFO  cassdemo.backend.BackendSession: Block 1 reserved by process 7
+621441 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+621445 INFO  cassdemo.backend.BackendSession: Block 1 reserved by process -1
+621448 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+621452 INFO  cassdemo.backend.BackendSession: Block 8 reserved by process 7
+621455 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+621458 INFO  cassdemo.backend.BackendSession: Block 8 reserved by process -1
+621461 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+621466 INFO  cassdemo.backend.BackendSession: Block 0 reserved by process 7
+621469 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+621473 INFO  cassdemo.backend.BackendSession: Block 0 reserved by process -1
+621477 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+621482 INFO  cassdemo.backend.BackendSession: Block 2 reserved by process 7
+621497 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+621500 INFO  cassdemo.backend.BackendSession: Block 2 reserved by process -1
+621505 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+621519 INFO  cassdemo.backend.BackendSession: Block 4 reserved by process 7
+621523 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+621528 INFO  cassdemo.backend.BackendSession: Block 4 reserved by process -1
+621531 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+621536 INFO  cassdemo.backend.BackendSession: Block 7 reserved by process 7
+621539 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+621541 INFO  cassdemo.backend.BackendSession: Block 7 reserved by process -1
+621544 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+621551 INFO  cassdemo.backend.BackendSession: Block 6 reserved by process 7
+621554 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+621556 INFO  cassdemo.backend.BackendSession: Block 6 reserved by process -1
+621560 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+621569 INFO  cassdemo.backend.BackendSession: Block 9 reserved by process 7
+621581 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+621586 INFO  cassdemo.backend.BackendSession: Block 9 reserved by process -1
+621590 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+621594 INFO  cassdemo.backend.BackendSession: Block 3 reserved by process 7
+621597 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+621599 INFO  cassdemo.backend.BackendSession: Block 3 reserved by process -1
+624424 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+624430 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process 7
+624433 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+624446 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process -1
+624452 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+624458 INFO  cassdemo.backend.BackendSession: Block 1 reserved by process 7
+624461 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+624464 INFO  cassdemo.backend.BackendSession: Block 1 reserved by process -1
+624468 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+624474 INFO  cassdemo.backend.BackendSession: Block 8 reserved by process 7
+624477 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+624484 INFO  cassdemo.backend.BackendSession: Block 8 reserved by process -1
+624487 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+624493 INFO  cassdemo.backend.BackendSession: Block 0 reserved by process 7
+624496 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+624500 INFO  cassdemo.backend.BackendSession: Block 0 reserved by process -1
+624504 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+624508 INFO  cassdemo.backend.BackendSession: Block 2 reserved by process 7
+624511 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+624515 INFO  cassdemo.backend.BackendSession: Block 2 reserved by process -1
+624519 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+624525 INFO  cassdemo.backend.BackendSession: Block 4 reserved by process 7
+624531 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+624534 INFO  cassdemo.backend.BackendSession: Block 4 reserved by process -1
+624538 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+624551 INFO  cassdemo.backend.BackendSession: Block 7 reserved by process 7
+624554 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+624560 INFO  cassdemo.backend.BackendSession: Block 7 reserved by process -1
+624567 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+624577 INFO  cassdemo.backend.BackendSession: Block 6 reserved by process 7
+624582 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+624588 INFO  cassdemo.backend.BackendSession: Block 6 reserved by process -1
+624593 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+624599 INFO  cassdemo.backend.BackendSession: Block 9 reserved by process 7
+624604 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+624607 INFO  cassdemo.backend.BackendSession: Block 9 reserved by process -1
+624610 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+624615 INFO  cassdemo.backend.BackendSession: Block 3 reserved by process 7
+624617 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+624620 INFO  cassdemo.backend.BackendSession: Block 3 reserved by process -1
+626718 INFO  cassdemo.backend.BackendSession: Lock reserved by process 7
+626723 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process 7
+626733 INFO  cassdemo.backend.BackendSession: Lock reserved by process -1
+626737 INFO  cassdemo.backend.BackendSession: Number 9 in block 5 reserved by process 7
+626739 INFO  cassdemo.backend.BackendSession: Block 5 reserved by process -1
+cess 1
+606869 INFO  cassdemo.backend.BackendSession: Number 8 in block 9 reserved by process 1
+606870 INFO  cassdemo.backend.BackendSession: Block 9 reserved by process -1
